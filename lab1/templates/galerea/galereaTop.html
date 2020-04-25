@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    
+    info
+
+{% endblock %}
+
+{% block content %}
+
+    <a href="/galerea">Galerea</a>
+    {% if top_image %}
+        
+        {% for a in top_image%}
+            <h3>{{a.image_title}}</h3>
+            <img src={{a.image_url}} alt="" srcset="">
+            <p>Like count: {{a.image_like}}</p>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}

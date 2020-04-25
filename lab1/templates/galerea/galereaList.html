@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+    
+    info
+
+{% endblock %}
+
+{% block content %}
+
+    <a href="/galerea/top">Top image</a>
+    {% if latest_image %}
+        
+        {% for a in latest_image%}
+            <h3>{{a.image_title}}</h3>
+            <img src={{a.image_url}} alt="" srcset="">
+            <p>Like count: {{a.image_like}}</p>
+            <form action="/galerea/{{a.id}}/like" method="GET">
+                <input type="submit" name="like" value="like">        
+            </form>
+
+            <form action="/galerea/{{a.id}}/dislike" method="GET">
+                <input type="submit" name="dislike" value="dislike">        
+            </form>
+        {% endfor %}
+
+    {% endif %}
+
+{% endblock %}
